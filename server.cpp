@@ -15,18 +15,15 @@ int main()
     serverAddress.sin_port = htons(8080); 
     serverAddress.sin_addr.s_addr = INADDR_ANY; 
   
-    bind(serverSocket, (struct sockaddr*)&serverAddress, 
-         sizeof(serverAddress)); 
+    bind(serverSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress)); 
   
     listen(serverSocket, 5); 
   
-    int clientSocket 
-        = accept(serverSocket, nullptr, nullptr); 
+    int clientSocket = accept(serverSocket, nullptr, nullptr); 
   
     char buffer[1024] = { 0 }; 
     recv(clientSocket, buffer, sizeof(buffer), 0); 
-    cout << "Message from client: " << buffer 
-              << endl; 
+    cout << "Message from client: " << buffer << endl; 
   
     close(serverSocket); 
   
