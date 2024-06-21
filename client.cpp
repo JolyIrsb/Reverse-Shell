@@ -13,8 +13,7 @@ int main()
 	serverAddress.sin_port = htons(8080); 
 	serverAddress.sin_addr.s_addr = INADDR_ANY; 
 
-	connect(clientSocket, (struct sockaddr*)&serverAddress, 
-			sizeof(serverAddress)); 
+	connect(clientSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress)); 
 
 	const char* message = "Hello, server!"; 
 	send(clientSocket, message, strlen(message), 0); 
